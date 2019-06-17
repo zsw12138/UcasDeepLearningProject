@@ -225,7 +225,7 @@ def test(path):
     features, label = read_test_wave(path)
     print('loading ASRCNN model...')
     with tf.Session() as sess:
-        saver = tf.train.import_meta_graph('cnn_model/model.ckpt-240.meta')
+        saver = tf.train.import_meta_graph('cnn_model/model.ckpt-249.meta')
         saver.restore(sess, tf.train.latest_checkpoint('cnn_model'))
         graph = tf.get_default_graph()
         input_x = graph.get_tensor_by_name("input_x:0")
