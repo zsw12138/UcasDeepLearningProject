@@ -16,7 +16,7 @@ class CNNConfig(object):
     hidden_dim = 32  # 全连接层神经元
     dropout_keep_prob = 1  # dropout保留比例
     learning_rate = 1e-3  # 学习率
-    num_epochs = 1000  # 总迭代轮次
+    num_epochs = 250  # 总迭代轮次
     batch_size = 128
     print_per_batch = 20
     save_tb_per_batch = 10
@@ -242,5 +242,12 @@ def test(path):
 
 
 if __name__ == '__main__':
-    #train()
-    test(loc + '/numbersRec/test/')
+    if len(sys.argv) != 2:
+        print("input error")
+    else:
+        if sys.argv[1] == 'train':
+            train()
+        elif sys.argv[1] == 'test':
+            test(loc + '/numbersRec/test/')
+        else:
+            print("input error ,please input train or test")
